@@ -93,7 +93,7 @@ var work = {
             "workTitle" : "volunteer ",
             "workDates" : "2015 - future",
             "workLocation" : "Jackson Street School",
-            "workDescription" : "After School program - Teaching computer to kids "
+            "workDescription" : "After School program - Teaching computer to kids"
         }         
 
         ] 
