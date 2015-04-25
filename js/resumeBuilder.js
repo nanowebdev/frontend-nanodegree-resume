@@ -101,7 +101,40 @@ var work = {
 
         }
 
-var project = {};
+var projects = {
+    "projects": [
+        {
+            "projectTitle": "Morning MathClub",
+            "projectDates": "2013-future",
+            "projectDescription": "vjfdioghspeioubnjpseurbh",
+            "projectImage": " "
+        },
+        {
+            "projectTitle": "Computer Coding",
+            "projectDates": "2014-2016",
+            "projectDescription": "hjfkhdfkljvidfpuh nvkjhuif",
+            "projectImage" : " "
+        }
+        ]
+}
+
+projects.display = function() {
+    for (project in projects.projects) {
+        $("#projects").append(HTMLprojectStart);
+        var formattedTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].projectTitle);
+        $(".project-entry:last").append(formattedTitle);
+        var formattedDates = HTMLprojectDates.replace("%data%", projects.projects[project].projectDates);
+        $(".project-entry:last").append(formattedDates);
+        var formattedDescription = HTMLprojectDescription.replace("%data%", projects.projects[project].projectDescription);
+        $(".project-entry:last").append(formattedDescription);
+        var formattedImage = HTMLprojectImage.replace("%data%", projects.projects[project].projectImage);
+        $(".project-entry:last").append(formattedImage);
+
+        
+                              }
+}();
+
+
 
 if (bio.skills.length > 0) {
 
@@ -118,14 +151,13 @@ if (bio.skills.length > 0) {
 
 
 
-
+work.display = function() {
 for (job in work.jobs) { 
      
       
     var employer = HTMLworkEmployer.replace("%data%",  work.jobs[job].workEmployer);
     var title = HTMLworkTitle.replace("%data%",  work.jobs[job].workTitle);
     var dates = HTMLworkDates.replace("%data%",  work.jobs[job].workDates);
-    //var location = HTMLworkLocation.replace("%data%",  work.jobs[job].workLocation);
     var description = HTMLworkDescription.replace("%data%", work.jobs[job].workDescription);
     
 
@@ -140,7 +172,24 @@ for (job in work.jobs) {
     $(".work-entry:last").append(dates);
     $(".work-entry:last").append(description);
     
+}  
+}();
+
+function inName(oldName) {
+    var finalName = oldName;
+
+    // Your code goes here!
+    finalName = finalName.split(" ");
+    name1 = finalName[1].toUpperCase();
+    name2 = finalName[0].slice(0,1).toUpperCase() + finalName[0].slice(1).toLowerCase();
+    finalName = name2 + " " + name1;
     
-}
+    //$("h1#name").text(finalName);
+    // Don't delete this line!
+    return finalName;
+};
+$("#main").append(internationalizeButton);
+// Did your code work? The line below will tell you!
+
 
 
