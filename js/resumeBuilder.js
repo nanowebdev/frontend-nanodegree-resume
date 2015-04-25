@@ -20,10 +20,10 @@ $("#header").prepend(formattedName);
 
 var bio = {"name": "Pallavi",
 			"role" : "Web Developer",
-			"contactInfo" : {
+			"contacts" : {
 				"Phone" : "678-237-3387",
 				"email" : "natyanjali.usa@gmail.com",
-				"Location": "New England"
+				"location": "Northampton,USA"
 			},
 			"bioPic" : "",
 			"welcomeMsg" : "Hello World!!",
@@ -32,8 +32,8 @@ var bio = {"name": "Pallavi",
 // Commented code start - Reason
 /*$("#main").append(bio.name);
 $("#main").append(bio.role);
-$("#main").append(bio.contactInfo.Phone);
-$("#main").append(bio.contactInfo.email);
+$("#main").append(bio.contacts.Phone);
+$("#main").append(bio.contacts.email);
 
 var work = {};
 work.jobPosition = "Educator";
@@ -51,15 +51,15 @@ var education = {
     	{
             "schoolName": "NIE",
             "schoolDegree" : "Degree",
-            "schoolDates" : "2004",
-            "schoolLocation": "India",
+            "schoolDates" : "2004 ",
+            "location": "Mysore,India",
             "schoolMajor": ["Industrial Production and Management"]
         },
         {
             "schoolName": "LionsSchool",
             "schoolDegree" : "Pre-University",
-            "schoolDates" : "2000",
-            "schoolLocation": "India",
+            "schoolDates" : "2000 ",
+            "location": "Mysore,India",
             "schoolMajor": ["Physics", "Chemistry", "Mathematics", "Biology"]
         }
         
@@ -69,7 +69,7 @@ var education = {
     	"onlineClasses" : "NanoDegree",
 		"onlineTitle" : "FrontEnd Web Development",
 		"onlineSchool" : "Udacity",
-		"onlineDates" : 2014,
+		"onlineDates" : 2015,
 		"onlineURL" : "https://www.udacity.com/course/nd001"
 
     }
@@ -84,7 +84,7 @@ var work = {
 		      "workEmployer" : "google.com",
 		      "workTitle" : "Business",
     		  "workDates" : "2015 - future",
-    		  "workLocation" : "Work from Home",
+    		  "workLocation" : "Florence,USA",
     		  "workDescription" : "E-Commerce Business"
         } , 
         
@@ -92,7 +92,7 @@ var work = {
             "workEmployer" : "Northampton Public Schools",
             "workTitle" : "volunteer ",
             "workDates" : "2015 - future",
-            "workLocation" : "Jackson Street School",
+            "workLocation" : "Easthampton,USA",
             "workDescription" : "After School program - Teaching computer to kids "
         }         
 
@@ -117,22 +117,6 @@ var projects = {
         }
         ]
 }
-
-projects.display = function() {
-    for (project in projects.projects) {
-        $("#projects").append(HTMLprojectStart);
-        var formattedTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].projectTitle);
-        $(".project-entry:last").append(formattedTitle);
-        var formattedDates = HTMLprojectDates.replace("%data%", projects.projects[project].projectDates);
-        $(".project-entry:last").append(formattedDates);
-        var formattedDescription = HTMLprojectDescription.replace("%data%", projects.projects[project].projectDescription);
-        $(".project-entry:last").append(formattedDescription);
-        var formattedImage = HTMLprojectImage.replace("%data%", projects.projects[project].projectImage);
-        $(".project-entry:last").append(formattedImage);
-
-        
-                              }
-}();
 
 
 
@@ -175,6 +159,41 @@ for (job in work.jobs) {
 }  
 }();
 
+projects.display = function() {
+    for (project in projects.projects) {
+        $("#projects").append(HTMLprojectStart);
+        var formattedTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].projectTitle);
+        $(".project-entry:last").append(formattedTitle);
+        var formattedDates = HTMLprojectDates.replace("%data%", projects.projects[project].projectDates);
+        $(".project-entry:last").append(formattedDates);
+        var formattedDescription = HTMLprojectDescription.replace("%data%", projects.projects[project].projectDescription);
+        $(".project-entry:last").append(formattedDescription);
+        var formattedImage = HTMLprojectImage.replace("%data%", projects.projects[project].projectImage);
+        $(".project-entry:last").append(formattedImage);
+
+        
+                              }
+}();
+
+education.display = function(){
+    for (edu in education.schools) {
+        $("#education").append(HTMLschoolStart);
+        var formattedSchoolName = HTMLschoolName.replace("%data%", education.schools[edu].schoolName);
+        $(".education-entry:last").append(formattedSchoolName);
+        var formattedSchoolDegree = HTMLschoolDegree.replace("%data%", education.schools[edu].schoolDegree);
+        $(".education-entry:last").append(formattedSchoolDegree);
+        var formattedSchoolDates = HTMLschoolDates.replace("%data%", education.schools[edu].schoolDates);
+        $(".education-entry:last").append(formattedSchoolDates);
+        var formattedSchoolLocation = HTMLschoolLocation.replace("%data%", education.schools[edu].location);
+        $(".education-entry:last").append(formattedSchoolLocation);
+        var formattedSchoolMajor = HTMLschoolMajor.replace("%data%", education.schools[edu].schoolMajor);
+        $(".education-entry:last").append(formattedSchoolMajor);
+
+
+    }
+}();
+
+
 function inName(oldName) {
     var finalName = oldName;
 
@@ -191,5 +210,5 @@ function inName(oldName) {
 $("#main").append(internationalizeButton);
 // Did your code work? The line below will tell you!
 
-
+$("#mapDiv").append(googleMap);
 
