@@ -18,11 +18,17 @@ var formattedRole = HTMLheaderRole.replace("%data%" , role);
 $("#header").prepend(formattedRole);
 $("#header").prepend(formattedName);
 
+var welcomeMsg = "Welcome to Pallavi's World!";
+var formattedWelmsg = HTMLwelcomeMsg.replace("%data%", welcomeMsg);
+$("#header").append(formattedWelmsg);
+
+
 var bio = {"name": "Pallavi",
 			"role" : "Web Developer",
 			"contacts" : {
 				"Phone" : "678-237-3387",
 				"email" : "natyanjali.usa@gmail.com",
+                "github":"Nanowebdev",
 				"location": "Northampton,USA"
 			},
 			"bioPic" : "",
@@ -30,12 +36,18 @@ var bio = {"name": "Pallavi",
 			"skills" : ["Dancing", "Coding", "Teaching", "volunteering"]
 		}
 // Commented code start - Reason
-/*$("#main").append(bio.name);
-$("#main").append(bio.role);
-$("#main").append(bio.contacts.Phone);
-$("#main").append(bio.contacts.email);
+//$("#main").append(bio.name);
+//$("#main").append(bio.role);
+var formattedPhone = HTMLmobile.replace("%data%",bio.contacts.Phone );
+$("#footerContacts").append(formattedPhone);
+var formattedEmail = HTMLemail.replace("%data%",bio.contacts.email);
+$("#footerContacts").append(formattedEmail);
+var formattedGithub = HTMLgithub.replace("%data%",bio.contacts.github);
+$("#footerContacts").append(formattedGithub);
+var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
+$("#footerContacts").append(formattedLocation);
 
-var work = {};
+/*var work = {};
 work.jobPosition = "Educator";
 work.employer = "JSS";
 work.yearsWorked = "1";
@@ -60,20 +72,28 @@ var education = {
             "schoolDegree" : "Pre-University",
             "schoolDates" : "2000 ",
             "location": "Mysore,India",
-            "schoolMajor": ["Physics", "Chemistry", "Mathematics", "Biology"]
+            "schoolMajor": ["Physics", " Chemistry", " Mathematics", " Biology"]
         }
         
     ],
-    "onlineCourses":  
+    "onlineCourses":  [
     {
-    	"onlineClasses" : "NanoDegree",
+        
+        "onlineTitle" : "An Introduction to Interactive Programming in Python",
+        "onlineSchool" : "Coursera",
+        "onlineDates" : 2014,
+        "onlineURL" : "https://www.coursera.org/course/interactivepython1"
+    },
+    {
+    	
 		"onlineTitle" : "FrontEnd Web Development",
 		"onlineSchool" : "Udacity",
 		"onlineDates" : 2015,
 		"onlineURL" : "https://www.udacity.com/course/nd001"
 
     }
-    
+                   ]
+
 }
 
 var work = {
@@ -125,7 +145,7 @@ if (bio.skills.length > 0) {
      $("#header").append(HTMLskillsStart);
      
 
-     bio.skills.forEach( function(aelement) {
+     bio.skills.forEach(function(aelement) {
         var mySkills = HTMLskills.replace("%data%" ,  aelement);
         $("#skills").append(mySkills);
                                          } 
@@ -188,27 +208,38 @@ education.display = function(){
         $(".education-entry:last").append(formattedSchoolLocation);
         var formattedSchoolMajor = HTMLschoolMajor.replace("%data%", education.schools[edu].schoolMajor);
         $(".education-entry:last").append(formattedSchoolMajor);
+                                    }
+    $("#education").append(HTMLonlineClasses);
+    for(course in education.onlineCourses) {
+        $("#education").append(HTMLschoolStart);
+        var formattedOnlineTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[course].onlineTitle);
+        $(".education-entry:last").append(formattedOnlineTitle);
+        var formattedOnlineSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[course].onlineSchool);
+        $(".education-entry:last").append(formattedOnlineSchool);
+        var formattedOnlineDate = HTMLonlineDates.replace("%data%",education.onlineCourses[course].onlineDates);
+        $(".education-entry:last").append(formattedOnlineDate);
+        var formattedOnlineURL = HTMLonlineURL.replace("%data%",education.onlineCourses[course].onlineURL); 
+        $(".education-entry:last").append(formattedOnlineURL);
 
 
     }
+
+
 }();
 
 
 function inName(oldName) {
     var finalName = oldName;
-
-    // Your code goes here!
     finalName = finalName.split(" ");
     name1 = finalName[1].toUpperCase();
     name2 = finalName[0].slice(0,1).toUpperCase() + finalName[0].slice(1).toLowerCase();
     finalName = name2 + " " + name1;
-    
     //$("h1#name").text(finalName);
-    // Don't delete this line!
     return finalName;
 };
+
 $("#main").append(internationalizeButton);
-// Did your code work? The line below will tell you!
+
 
 $("#mapDiv").append(googleMap);
 
