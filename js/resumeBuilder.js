@@ -7,7 +7,7 @@ $("#main").append(funthoughts);
 var square = function(x) 
 {
   return x * x;
-};*/
+}; */
 
 var name = "Pallavi Bandalli";
 var formattedName = HTMLheaderName.replace("%data%" , name);
@@ -31,9 +31,9 @@ var bio = {"name": "Pallavi",
                 "github":"Nanowebdev",
 				"location": "Northampton,USA"
 			},
-			"bioPic" : "",
-			"welcomeMsg" : "Hello World!!",
-			"skills" : ["Dancing", "Coding", "Teaching", "volunteering"]
+			"bioPic" : "images/197x148.gif",
+			"welcomeMesg" : "Hello World!!",
+			"skills" : [ "Coding", "Teaching", "Dancing", "Volunteering"]
 		}
 // Commented code start - Reason
 //$("#main").append(bio.name);
@@ -46,6 +46,8 @@ var formattedGithub = HTMLgithub.replace("%data%",bio.contacts.github);
 $("#footerContacts").append(formattedGithub);
 var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
 $("#footerContacts").append(formattedLocation);
+var formattedBioPic = HTMLbioPic.replace("%data%", bio.biopic);
+$("#header").append(formattedBioPic);
 
 /*var work = {};
 work.jobPosition = "Educator";
@@ -61,17 +63,19 @@ $("#main").append(education.lastSchool);*/
 var education = {
     "schools": [
     	{
-            "schoolName": "NIE",
+            "schoolName": "National Institute Of Engineering",
+            "schoolWebsite":"http://www.nie.ac.in/",
             "schoolDegree" : "Degree",
             "schoolDates" : "2004 ",
-            "location": "Mysore,India",
+            "location": "Mysore, India",
             "schoolMajor": ["Industrial Production and Management"]
         },
         {
-            "schoolName": "LionsSchool",
+            "schoolName": "Lions Pre-University College",
+            "schoolWebsite":"https://plus.google.com/112381606883424346720/about?gl=us&hl=en" ,
             "schoolDegree" : "Pre-University",
             "schoolDates" : "2000 ",
-            "location": "Mysore,India",
+            "location": "Kollegal, India",
             "schoolMajor": ["Physics", " Chemistry", " Mathematics", " Biology"]
         }
         
@@ -82,14 +86,18 @@ var education = {
         "onlineTitle" : "An Introduction to Interactive Programming in Python",
         "onlineSchool" : "Coursera",
         "onlineDates" : 2014,
-        "onlineURL" : "https://www.coursera.org/course/interactivepython1"
+        "onlineURL" : "www.coursera.org",
+        "onlinePage":"https://www.coursera.org/",
+        "onlineWebsite":"https://www.coursera.org/course/interactivepython1"
     },
     {
     	
-		"onlineTitle" : "FrontEnd Web Development",
+		"onlineTitle" : "FrontEnd Web Development NanoDegree",
 		"onlineSchool" : "Udacity",
 		"onlineDates" : 2015,
-		"onlineURL" : "https://www.udacity.com/course/nd001"
+		"onlineURL" : "www.udacity.com",
+        "onlinePage":"https://www.udacity.com/",
+        "onlineWebsite":"https://www.udacity.com/course/nd001"
 
     }
                    ]
@@ -101,19 +109,21 @@ var work = {
     "jobs": [ 
 
         {
-		      "workEmployer" : "google.com",
-		      "workTitle" : "Business",
+		      "workEmployer" : "Qnet Group",
+              "workWebsite": "http://www.qnet.net/",
+		      "workTitle" : "Entrepreneur",
     		  "workDates" : "2015 - future",
     		  "workLocation" : "Florence,USA",
-    		  "workDescription" : "E-Commerce Business"
+    		  "workDescription" : "E-Commerce home-based Business"
         } , 
         
         {
             "workEmployer" : "Northampton Public Schools",
+            "workWebsite": "http://www.northampton-k12.us/",
             "workTitle" : "volunteer ",
             "workDates" : "2015 - future",
             "workLocation" : "Easthampton,USA",
-            "workDescription" : "After School program - Teaching computer to kids "
+            "workDescription" : "After School program - Teaching computer Programming to kids "
         }         
 
         ] 
@@ -126,13 +136,13 @@ var projects = {
         {
             "projectTitle": "Morning MathClub",
             "projectDates": "2013-future",
-            "projectDescription": "vjfdioghspeioubnjpseurbh",
+            "projectDescription": "Morning MathClub runs 2 times a week at Jackson Street School, Northampton, Ma. I am the volunteer coordinator and help teacher organize games and activities. This club is mainly for the kids to learn Math and concepts of Math using varieties of games and fun activities. Around 40 kids participate every week and have improved their skills, speed and accuracy.",
             "projectImage": " "
         },
         {
             "projectTitle": "Computer Coding",
             "projectDates": "2014-2016",
-            "projectDescription": "hjfkhdfkljvidfpuh nvkjhuif",
+            "projectDescription": "I am teaching elementary school kids 'Basics of Computer Programming' using the website www.code.org. I am also introducing the concept of Javascript to kids as the block codes in code.org has been developed using Javasctipt. This class involves some offline activities/ games.",
             "projectImage" : " "
         }
         ]
@@ -141,10 +151,8 @@ var projects = {
 
 
 if (bio.skills.length > 0) {
-
      $("#header").append(HTMLskillsStart);
      
-
      bio.skills.forEach(function(aelement) {
         var mySkills = HTMLskills.replace("%data%" ,  aelement);
         $("#skills").append(mySkills);
@@ -160,19 +168,13 @@ for (job in work.jobs) {
      
       
     var employer = HTMLworkEmployer.replace("%data%",  work.jobs[job].workEmployer);
+    var formattedWorkWebsite = employer.replace("#",work.jobs[job].workWebsite);
     var title = HTMLworkTitle.replace("%data%",  work.jobs[job].workTitle);
     var dates = HTMLworkDates.replace("%data%",  work.jobs[job].workDates);
-    var description = HTMLworkDescription.replace("%data%", work.jobs[job].workDescription);
-    
-
-    var formatteddata = employer + title ;
-   
-    
-
+    var description = HTMLworkDescription.replace("%data%", work.jobs[job].workDescription);  
     $("#workExperience").append(HTMLworkStart);
-    $(".work-entry:last").append(formatteddata);
-    //$("#workExperience").append(employer);
-    //$("#workExperience").append(title);
+    $(".work-entry:last").append(title);
+    $(".work-entry:last").append(formattedWorkWebsite);
     $(".work-entry:last").append(dates);
     $(".work-entry:last").append(description);
     
@@ -197,9 +199,10 @@ projects.display = function() {
 
 education.display = function(){
     for (edu in education.schools) {
-        $("#education").append(HTMLschoolStart);
+        $("#education").append(HTMLschoolStart); 
         var formattedSchoolName = HTMLschoolName.replace("%data%", education.schools[edu].schoolName);
-        $(".education-entry:last").append(formattedSchoolName);
+        var formattedSchoolWebsite = formattedSchoolName.replace("#",education.schools[edu].schoolWebsite);
+        $(".education-entry:last").append(formattedSchoolWebsite);
         var formattedSchoolDegree = HTMLschoolDegree.replace("%data%", education.schools[edu].schoolDegree);
         $(".education-entry:last").append(formattedSchoolDegree);
         var formattedSchoolDates = HTMLschoolDates.replace("%data%", education.schools[edu].schoolDates);
@@ -213,18 +216,17 @@ education.display = function(){
     for(course in education.onlineCourses) {
         $("#education").append(HTMLschoolStart);
         var formattedOnlineTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[course].onlineTitle);
-        $(".education-entry:last").append(formattedOnlineTitle);
+        var formattedOnlineWebsite = formattedOnlineTitle.replace("#",education.onlineCourses[course].onlineWebsite);
+        $(".education-entry:last").append(formattedOnlineWebsite);
         var formattedOnlineSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[course].onlineSchool);
         $(".education-entry:last").append(formattedOnlineSchool);
         var formattedOnlineDate = HTMLonlineDates.replace("%data%",education.onlineCourses[course].onlineDates);
         $(".education-entry:last").append(formattedOnlineDate);
         var formattedOnlineURL = HTMLonlineURL.replace("%data%",education.onlineCourses[course].onlineURL); 
-        $(".education-entry:last").append(formattedOnlineURL);
-
+        var formattedOnlinePage = formattedOnlineURL.replace("#",education.onlineCourses[course].onlinePage);
+        $(".education-entry:last").append(formattedOnlinePage);
 
     }
-
-
 }();
 
 
