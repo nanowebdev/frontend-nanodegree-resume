@@ -31,13 +31,11 @@ var bio = {"name": "Pallavi",
                 "github":"Nanowebdev",
 				"location": "Northampton,USA"
 			},
-			"bioPic" : "images/197x148.gif",
-			"welcomeMesg" : "Hello World!!",
+			"bioPic" : "./images/web1.jpg",
+			//"welcomeMesg" : "Hello World!!",
 			"skills" : [ "Coding", "Teaching", "Dancing", "Volunteering"]
 		}
 // Commented code start - Reason
-//$("#main").append(bio.name);
-//$("#main").append(bio.role);
 var formattedPhone = HTMLmobile.replace("%data%",bio.contacts.Phone );
 $("#footerContacts").append(formattedPhone);
 var formattedEmail = HTMLemail.replace("%data%",bio.contacts.email);
@@ -46,7 +44,7 @@ var formattedGithub = HTMLgithub.replace("%data%",bio.contacts.github);
 $("#footerContacts").append(formattedGithub);
 var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
 $("#footerContacts").append(formattedLocation);
-var formattedBioPic = HTMLbioPic.replace("%data%", bio.biopic);
+var formattedBioPic = HTMLbioPic.replace("%data%", bio.bioPic);
 $("#header").append(formattedBioPic);
 
 /*var work = {};
