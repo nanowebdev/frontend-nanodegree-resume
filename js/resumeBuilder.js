@@ -35,17 +35,6 @@ var bio = {"name": "Pallavi",
 			//"welcomeMesg" : "Hello World!!",
 			"skills" : [ "Coding", "Teaching", "Dancing", "Volunteering"]
 		}
-// Commented code start - Reason
-var formattedPhone = HTMLmobile.replace("%data%",bio.contacts.Phone );
-$("#footerContacts").append(formattedPhone);
-var formattedEmail = HTMLemail.replace("%data%",bio.contacts.email);
-$("#footerContacts").append(formattedEmail);
-var formattedGithub = HTMLgithub.replace("%data%",bio.contacts.github);
-$("#footerContacts").append(formattedGithub);
-var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
-$("#footerContacts").append(formattedLocation);
-var formattedBioPic = HTMLbioPic.replace("%data%", bio.bioPic);
-$("#header").append(formattedBioPic);
 
 /*var work = {};
 work.jobPosition = "Educator";
@@ -56,7 +45,7 @@ $("#main").append(work["jobPosition"]);
 var education = {};
 education["lastSchool"] = "NIE";
 $("#main").append(education.lastSchool);*/
-// Commented code End
+
 
 var education = {
     "schools": [
@@ -111,7 +100,7 @@ var work = {
               "workWebsite": "http://www.qnet.net/",
 		      "workTitle" : "Entrepreneur",
     		  "workDates" : "2015 - future",
-    		  "workLocation" : "Florence,USA",
+    		  "location" : "Hong Kong, China",
     		  "workDescription" : "E-Commerce home-based Business"
         } , 
         
@@ -120,7 +109,7 @@ var work = {
             "workWebsite": "http://www.northampton-k12.us/",
             "workTitle" : "volunteer ",
             "workDates" : "2015 - future",
-            "workLocation" : "Easthampton,USA",
+            "location" : "Northampton, Ma, USA",
             "workDescription" : "After School program - Teaching computer Programming to kids "
         }         
 
@@ -159,6 +148,18 @@ if (bio.skills.length > 0) {
 
 }
 
+bio.display = function() {
+    var formattedPhone = HTMLmobile.replace("%data%",bio.contacts.Phone );
+    $("#footerContacts").append(formattedPhone);
+    var formattedEmail = HTMLemail.replace("%data%",bio.contacts.email);
+    $("#footerContacts").append(formattedEmail);
+    var formattedGithub = HTMLgithub.replace("%data%",bio.contacts.github);
+    $("#footerContacts").append(formattedGithub);
+    var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
+    $("#footerContacts").append(formattedLocation);
+    var formattedBioPic = HTMLbioPic.replace("%data%", bio.bioPic);
+    $("#header").append(formattedBioPic);
+}();
 
 
 work.display = function() {
